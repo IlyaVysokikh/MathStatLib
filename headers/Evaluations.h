@@ -39,25 +39,19 @@ class CentralMoment: public Evaluation
 private:
     int k;
 public:
-    CentralMoment(std::string path);
-    CentralMoment(std::vector<float> s);
+    CentralMoment(std::string path, int k);
+    CentralMoment(std::vector<float> s, int k);
     float calculate() override;
 };
 
 class Quantile: public Evaluation
 {
 public:
-    Quantile(std::string path);
-    Quantile(std::vector<float> s);
+    Quantile(std::string path, float alpha);
+    Quantile(std::vector<float> s, float alpha);
     float calculate() override;
-};
-
-class Quantile: public Evaluation
-{
-public:
-    Quantile(std::string path);
-    Quantile(std::vector<float> s);
-    float calculate() override;
+private:
+    float alpha;
 };
 
 class AssymetryFactor: public Evaluation
